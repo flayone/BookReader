@@ -26,6 +26,7 @@ import android.graphics.Path;
 import android.graphics.PointF;
 import android.graphics.Region;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 
 import com.justwayward.reader.bean.BookMixAToc;
 import com.justwayward.reader.manager.SettingManager;
@@ -214,7 +215,11 @@ public class PageWidget extends BaseReadView {
         mPath0.close();
 
         canvas.save();
-        canvas.clipPath(mPath0, Region.Op.XOR);
+        if(Build.VERSION.SDK_INT >= 28){
+            canvas.clipPath(mPath0);
+        }else {
+            canvas.clipPath(mPath0, Region.Op.XOR);
+        }
         canvas.drawBitmap(mCurPageBitmap, 0, 0, null);
         try {
             canvas.restore();
@@ -329,8 +334,13 @@ public class PageWidget extends BaseReadView {
         float rotateDegrees;
         canvas.save();
         try {
-            canvas.clipPath(mPath0, Region.Op.XOR);
-            canvas.clipPath(mPath1, Region.Op.INTERSECT);
+            if(Build.VERSION.SDK_INT >= 28){
+                canvas.clipPath(mPath0);
+                canvas.clipPath(mPath1);
+            }else {
+                canvas.clipPath(mPath0, Region.Op.XOR);
+                canvas.clipPath(mPath1, Region.Op.INTERSECT);
+            }
         } catch (Exception e) {
         }
 
@@ -363,7 +373,11 @@ public class PageWidget extends BaseReadView {
         mPath1.close();
         canvas.save();
         try {
-            canvas.clipPath(mPath0, Region.Op.XOR);
+            if(Build.VERSION.SDK_INT >= 28){
+                canvas.clipPath(mPath0);
+            }else {
+                canvas.clipPath(mPath0, Region.Op.XOR);
+            }
             canvas.clipPath(mPath1, Region.Op.INTERSECT);
         } catch (Exception e) {
         }

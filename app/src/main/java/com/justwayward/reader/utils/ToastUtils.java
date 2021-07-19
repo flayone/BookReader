@@ -16,6 +16,8 @@
 package com.justwayward.reader.utils;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.widget.Toast;
 
 /**
@@ -71,7 +73,16 @@ public class ToastUtils {
         if (mToast == null) {
             mToast = Toast.makeText(context, text, duration);
         } else {
-            mToast.setText(text);
+            new Handler(Looper.getMainLooper()).post(new Runnable() {
+
+                @Override
+                public void run() {
+
+                    mToast.setText(text);
+
+                }
+            });
+
         }
         return mToast;
     }

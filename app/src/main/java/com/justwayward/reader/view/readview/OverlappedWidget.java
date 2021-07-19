@@ -21,6 +21,7 @@ import android.graphics.Canvas;
 import android.graphics.Path;
 import android.graphics.Region;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 
 import com.justwayward.reader.bean.BookMixAToc;
 import com.justwayward.reader.manager.SettingManager;
@@ -69,7 +70,11 @@ public class OverlappedWidget extends BaseReadView {
             mPath0.lineTo(mScreenWidth, 0);
             mPath0.lineTo(mScreenWidth + touch_down, 0);
             mPath0.close();
-            canvas.clipPath(mPath0, Region.Op.XOR);
+            if(Build.VERSION.SDK_INT >= 28){
+                canvas.clipPath(mPath0);
+            }else {
+                canvas.clipPath(mPath0, Region.Op.XOR);
+            }
             canvas.drawBitmap(mCurPageBitmap, touch_down, 0, null);
         } else {
             mPath0.moveTo(touch_down, 0);
@@ -120,7 +125,11 @@ public class OverlappedWidget extends BaseReadView {
             canvas.clipPath(mPath0);
             canvas.drawBitmap(mNextPageBitmap, 0, 0, null);
         } else {
-            canvas.clipPath(mPath0, Region.Op.XOR);
+            if(Build.VERSION.SDK_INT >= 28){
+                canvas.clipPath(mPath0);
+            }else {
+                canvas.clipPath(mPath0, Region.Op.XOR);
+            }
             canvas.drawBitmap(mNextPageBitmap, 0, 0, null);
         }
         try {
