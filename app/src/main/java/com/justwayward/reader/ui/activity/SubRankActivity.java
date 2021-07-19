@@ -17,9 +17,9 @@ package com.justwayward.reader.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.justwayward.reader.R;
 import com.justwayward.reader.base.BaseActivity;
@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 /**
  * @author yuyh.
@@ -58,9 +58,9 @@ public class SubRankActivity extends BaseActivity {
     private String all;
     private String title;
 
-    @Bind(R.id.indicatorSubRank)
+    @BindView(R.id.indicatorSubRank)
     RVPIndicator mIndicator;
-    @Bind(R.id.viewpagerSubRank)
+    @BindView(R.id.viewpagerSubRank)
     ViewPager mViewPager;
 
     private List<Fragment> mTabContents;

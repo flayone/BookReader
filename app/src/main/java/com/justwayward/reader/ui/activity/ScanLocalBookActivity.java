@@ -21,9 +21,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.justwayward.reader.R;
 import com.justwayward.reader.base.BaseActivity;
@@ -42,7 +42,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 /**
  * 扫描本地书籍
@@ -56,7 +56,7 @@ public class ScanLocalBookActivity extends BaseActivity implements RecyclerArray
         context.startActivity(new Intent(context, ScanLocalBookActivity.class));
     }
 
-    @Bind(R.id.recyclerview)
+    @BindView(R.id.recyclerview)
     EasyRecyclerView mRecyclerView;
 
     private RecommendAdapter mAdapter;

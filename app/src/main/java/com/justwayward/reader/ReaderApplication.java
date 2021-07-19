@@ -17,7 +17,7 @@ package com.justwayward.reader;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.v7.app.AppCompatDelegate;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.justwayward.reader.base.Constant;
 import com.justwayward.reader.base.CrashHandler;
@@ -32,8 +32,8 @@ import com.justwayward.reader.utils.SharedPreferencesUtil;
 import com.sinovoice.hcicloudsdk.api.HciCloudSys;
 import com.sinovoice.hcicloudsdk.common.HciErrorCode;
 import com.sinovoice.hcicloudsdk.common.InitParam;
-import com.squareup.leakcanary.LeakCanary;
-import com.squareup.leakcanary.RefWatcher;
+//import com.squareup.leakcanary.LeakCanary;
+//import com.squareup.leakcanary.RefWatcher;
 
 /**
  * @author yuyh.
@@ -44,17 +44,17 @@ public class ReaderApplication extends Application {
     private static ReaderApplication sInstance;
     private AppComponent appComponent;
 
-    private RefWatcher refWatcher;
-
-    public static RefWatcher getRefWatcher(Context context) {
-        ReaderApplication application = (ReaderApplication) context.getApplicationContext();
-        return application.refWatcher;
-    }
+//    private RefWatcher refWatcher;
+//
+//    public static RefWatcher getRefWatcher(Context context) {
+//        ReaderApplication application = (ReaderApplication) context.getApplicationContext();
+//        return application.refWatcher;
+//    }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        refWatcher = LeakCanary.install(this);
+//        refWatcher = LeakCanary.install(this);
         sInstance = this;
         initCompoent();
         AppUtils.init(this);

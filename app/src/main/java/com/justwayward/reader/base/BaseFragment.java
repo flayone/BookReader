@@ -18,9 +18,9 @@ package com.justwayward.reader.base;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
+import androidx.annotation.LayoutRes;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -91,7 +91,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
     }
 
     public FragmentActivity getSupportActivity() {
@@ -103,9 +103,9 @@ public abstract class BaseFragment extends Fragment {
                 .getApplicationContext()) : this.activity.getApplicationContext();
     }
 
-    protected LayoutInflater getLayoutInflater() {
-        return inflater;
-    }
+//    public LayoutInflater getLayoutInflater() {
+//        return inflater;
+//    }
 
     protected View getParentView() {
         return parentView;

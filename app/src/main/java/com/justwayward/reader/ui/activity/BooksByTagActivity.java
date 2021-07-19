@@ -16,9 +16,9 @@
 package com.justwayward.reader.ui.activity;
 
 import android.content.Intent;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import com.justwayward.reader.R;
@@ -37,7 +37,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 /**
  * Created by Administrator on 2016/8/7.
@@ -45,9 +45,9 @@ import butterknife.Bind;
 public class BooksByTagActivity extends BaseActivity implements BooksByTagContract.View,
         OnRvItemClickListener<BooksByTag.TagBook> {
 
-    @Bind(R.id.refreshLayout)
+    @BindView(R.id.refreshLayout)
     SwipeRefreshLayout refreshLayout;
-    @Bind(R.id.recyclerview)
+    @BindView(R.id.recyclerview)
     RecyclerView mRecyclerView;
     private LinearLayoutManager linearLayoutManager;
 
